@@ -31,7 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
 
-    let navbar = document.createElement("div");
+    let navbar = document.createElement("navbar");
+    navbar.classList.add("p-1")
     navbar.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
@@ -116,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </header>
     `;
 
-    document.body.appendChild(navbar)
+    document.body.prepend(navbar)
 
 
     let footer = document.createElement("footer");
