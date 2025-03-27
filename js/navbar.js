@@ -29,9 +29,10 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(boostrapJS);
 
 
+    
 
-
-    document.getElementById("navbar").innerHTML = `
+    let navbar = document.createElement("div");
+    navbar.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -112,6 +113,11 @@ document.addEventListener("DOMContentLoaded", function() {
         </header>
     `;
 
-    document.getElementById("footer").innerHTML = `<p class="float-end"><a href="#">Back to top</a></p>
+    document.body.appendChild(navbar)
+
+
+    let footer = document.createElement("footer");
+    footer.innerHTML = `<p class="float-end"><a href="#">Back to top</a></p>
     <p>&copy; 2017–2024 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>`;
+    document.body.appendChild(footer)
 });
