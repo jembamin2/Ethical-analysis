@@ -87,30 +87,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
         <header data-bs-theme="dark">
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <div class="container-fluid">
-                <a class="navbar-brand" href="#">Carousel</a>
+                <div class="container-fluid container px-5">
+                // <a class="navbar-brand" href="index.html">La censure des réseaux</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="index.html"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Analysis.html">Analyse Ethique</a>
+                        <a class="nav-link active" href="Analysis.html">Analyse Ethique</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="Enquêtes.html">Enquêtes</a>
+                      <a class="nav-link active" href="Enquêtes.html">Enquêtes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Avis d'expert
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="Expert1_Duez.html">Laurent Duez</a></li>
+                            <li><a class="dropdown-item" href="Expert2_Hari.html">Hari</a></li>
+                            <li><a class="dropdown-item" href="Expert3_UHelp.html">U-Psy</a></li>
+                        </ul>
                     </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
                 </div>
             </nav>
@@ -121,9 +124,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     let footer = document.createElement("footer");
-    footer.className = "container";
-    footer.innerHTML = `<p class="float-end"><a href="#">Back to top</a></p>
-    <p>&copy; 2017–2024 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>`;
+    // footer.className = "container";
+    footer.classList.add("container")
+    footer.classList.add("mt-3")
+    // footer.innerHTML = `<p class="float-end"><a href="#">Back to top</a></p>
+    // <p>Faut-il censurer les réseaux sociaux ? </p>`;
+
+    footer.innerHTML = `
+    <div class="row container align-items-center">
+      <div class="col-md-3 col-12 mx-auto text-center"><img src="../Images/umons-log.webp" class="img-fluid w-65" alt="Umons"></div>
+      <div class="col-md-6 col-12 order-first order-md-2 mx-auto text-center">
+        <div class="display-6">À propos</div>
+        <div>Réaliser dans le cadre du cours de questions d'éthique en IA et en NTIC</div>
+        <div>Réaliser par Mourad Faris, Benjamin Lienard, Medhi Vanderberken et Cyril Taquet</div>
+        <div>© 2025 Copyright</div>
+      </div>
+      <div class="col-md-3 col-12 order-last mx-auto text-center"><img src="../Images/FPMs.png" class="img-fluid w-50 " alt="Faculte Polytechnique de Mons"></div>
+    </div>`
     document.body.appendChild(footer)
 
     
