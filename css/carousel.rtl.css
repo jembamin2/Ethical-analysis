@@ -49,6 +49,12 @@ body {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }
 
+.featurette-divider-middle {
+  margin-top: 2rem 0; /* Space out the Bootstrap <hr> more */
+  margin-left: 2em 0;
+  margin-right: 2em 0;
+}
+
 /* Thin out the marketing headings */
 
 /* RESPONSIVE CSS

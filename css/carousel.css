@@ -51,6 +51,10 @@ body {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }
 
+.featurette-divider-top {
+  margin-top: 5rem ; /* Space out the Bootstrap <hr> more */
+}
+
 /* Thin out the marketing headings */
 /* rtl:begin:remove */
 .featurette-heading {
@@ -156,4 +160,10 @@ body {
 
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
+}
+
+/*-------------------------Added Classes-------------------------------------*/
+
+.lh-3 {
+  line-height: 1.5em;
 }
