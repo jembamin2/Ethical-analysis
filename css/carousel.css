@@ -78,12 +78,12 @@ body {
     font-size: 50px;
   }
 }
-
+/*
 @media (min-width: 62em) {
   .featurette-heading {
     margin-top: 7rem;
   }
-}
+}*/
 
 .bd-placeholder-img {
   font-size: 1.125rem;
