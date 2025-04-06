@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
 
     let navbar = document.createElement("navbar");
-    navbar.classList.add("p-1")
+    // navbar.classList.add("p-1") //jsp pourquoi maintenant plus besoin
     navbar.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
@@ -98,7 +98,18 @@ document.addEventListener("DOMContentLoaded", function() {
                         <a class="nav-link active" aria-current="page" href="index.html"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="Analysis.html">Analyse Ethique</a>
+
+                        <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" id="dropdownEthique" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Analyse Ethique
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownEthique">
+                            <li><a class="dropdown-item" href="EthiqueVertue.html">Ethique des vertues</a></li>
+                            <li><a class="dropdown-item" href="EthiqueDeontologisme.html">Ethique du déontologisme</a></li>
+                            <li><a class="dropdown-item" href="EthiqueConsequentialisme.html">Ethique du conséquentialisme</a></li>
+                            <li><a class="dropdown-item" href="EthiqueResponsabilite.html">Ethique de la responsabilité</a></li>
+                        </ul>
+                    </li>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" href="Enquêtes.html">Enquêtes</a>
@@ -114,8 +125,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         </ul>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="Equipe.html">Notre équipe</a>
+                      <a class="nav-link active" href="sources.html">Sources & références</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="Equipe.html">notre équipe</a>
                     </ul>
                 </div>
                 </div>
