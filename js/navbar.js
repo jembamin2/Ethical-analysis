@@ -98,7 +98,18 @@ document.addEventListener("DOMContentLoaded", function() {
                         <a class="nav-link active" aria-current="page" href="index.html"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="Analysis.html">Analyse Ethique</a>
+
+                        <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" id="dropdownEthique" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Analyse Ethique
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownEthique">
+                            <li><a class="dropdown-item" href="EthiqueVertue.html">Ethique des vertues</a></li>
+                            <li><a class="dropdown-item" href="EthiqueDeontologisme.html">Ethique du déontologisme</a></li>
+                            <li><a class="dropdown-item" href="EthiqueConsequentialisme.html">Ethique du conséquentialisme</a></li>
+                            <li><a class="dropdown-item" href="EthiqueResponsabilite.html">Ethique de la responsabilité</a></li>
+                        </ul>
+                    </li>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" href="Enquêtes.html">Enquêtes</a>
