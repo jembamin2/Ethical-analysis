@@ -113,6 +113,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             <li><a class="dropdown-item" href="Expert3_UHelp.html">U-Psy</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="Equipe.html">Notre équipe</a>
+                    </li>
                     </ul>
                 </div>
                 </div>
