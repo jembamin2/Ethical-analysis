@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
 
     let navbar = document.createElement("navbar");
-    navbar.classList.add("p-1")
+    // navbar.classList.add("p-1") //jsp pourquoi maintenant plus besoin
     navbar.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
@@ -112,6 +112,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             <li><a class="dropdown-item" href="Expert2_Hari.html">Hari</a></li>
                             <li><a class="dropdown-item" href="Expert3_UHelp.html">U-Psy</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="sources.html">Sources & références</a>
                     </li>
                     </ul>
                 </div>
