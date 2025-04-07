@@ -55,6 +55,10 @@ body {
   margin-top: 5rem ; /* Space out the Bootstrap <hr> more */
 }
 
+.featurette-dividder-bottom {
+  margin-bottom: 5rem ; /* Space out the Bootstrap <hr> more */
+}
+
 /* Thin out the marketing headings */
 /* rtl:begin:remove */
 .featurette-heading {

@@ -55,6 +55,9 @@ body {
   margin-right: 2em 0;
 }
 
+.featurette-divider-bottom {
+  margin-bottom: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
 /* Thin out the marketing headings */
 
 /* RESPONSIVE CSS

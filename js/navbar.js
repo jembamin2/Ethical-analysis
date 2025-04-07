@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       <a class="nav-link active" href="sources.html">Sources & références</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="Equipe.html">notre équipe</a>
+                      <a class="nav-link active" href="Equipe.html">Notre équipe</a>
                     </ul>
                 </div>
                 </div>
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="row container align-items-center">
       <div class="col-md-3 col-12 mx-auto text-center"><img src="../Images/umons-log.webp" class="img-fluid w-65" alt="Umons"></div>
       <div class="col-md-6 col-12 order-first order-md-2 mx-auto text-center">
-        <div class="display-6">À propos</div>
+        <div class="display-6 mb-4">À propos</div>
         <div>Réaliser dans le cadre du cours de questions d'éthique en IA et en NTIC</div>
         <div>Réaliser par Mourad Faris, Benjamin Lienard, Medhi Vanderberken et Cyril Taquet</div>
         <div>© 2025 Copyright</div>
