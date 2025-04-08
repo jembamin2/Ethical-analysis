@@ -171,3 +171,7 @@ body {
 .lh-3 {
   line-height: 1.5em;
 }
+
+.border-30 {
+  border-radius: 30px;
+}
