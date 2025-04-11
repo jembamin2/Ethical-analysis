@@ -1,0 +1,459 @@
+Received: from AS8PR01MB7302.eurprd01.prod.exchangelabs.com
+ (2603:10a6:20b:251::20) by DU2PR01MB8431.eurprd01.prod.exchangelabs.com with
+ HTTPS; Sun, 23 Mar 2025 05:04:55 +0000
+Received: from AM9P250CA0027.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:21c::32)
+ by AS8PR01MB7302.eurprd01.prod.exchangelabs.com (2603:10a6:20b:251::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Sun, 23 Mar
+ 2025 05:04:52 +0000
+Received: from AM3PEPF0000A794.eurprd04.prod.outlook.com
+ (2603:10a6:20b:21c:cafe::e9) by AM9P250CA0027.outlook.office365.com
+ (2603:10a6:20b:21c::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.40 via Frontend Transport; Sun,
+ 23 Mar 2025 05:04:52 +0000
+Authentication-Results: spf=pass (sender IP is 2a00:1450:4864:20::62c)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 2a00:1450:4864:20::62c as permitted sender) receiver=protection.outlook.com;
+ client-ip=2a00:1450:4864:20::62c; helo=mail-ej1-x62c.google.com; pr=C
+Received: from mail-ej1-x62c.google.com (2a00:1450:4864:20::62c) by
+ AM3PEPF0000A794.mail.protection.outlook.com (2603:10a6:20f:fff4:0:7:0:b) with
+ Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id
+ 15.20.8534.20 via Frontend Transport; Sun, 23 Mar 2025 05:04:52 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ac2bfcd2a70so490099966b.0
+        for <Medhi.Vanderberken@student.umons.ac.be>; Sat, 22 Mar 2025 22:04:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742706291; x=1743311091; darn=student.umons.ac.be;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QPpXF1Obib+P+eEwgZnsm9RVSI9QCJDJBVxQnD+Gjm4=;
+        b=j+oD4UOdwVAx83gDjtU90PRQVgkTiMGx7B8tIpA4fQM7v26gV3xxOKE9PbXd5hjCmF
+         Hv1DtFYqzIUTF6kWr65xFW80c2GGE/07ITjMXkfS1Q5vNg/Zla02yKdYcUX5qaccJ5ei
+         Y/Czmwc26z4pVhGQqczvecjFK2ZvoTXxwbXlhUkCafbvJ4Mfg759MtFGpkcd9kTWGXpY
+         z8b9zS8fnwwDkgvddBiHdOFZBx7ognBH6UtbB2V0trkHKy7P8N+o2aFE0u9AIWdQge5g
+         SBKtkR8m2xBDaODuW2k7hxNTZyLbPWYQgns40wkOo+qML4CRoFzIxFnfDkI8x3cGgQyl
+         /W6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742706291; x=1743311091;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QPpXF1Obib+P+eEwgZnsm9RVSI9QCJDJBVxQnD+Gjm4=;
+        b=SQkXBTho2S2iio+X5JqF4Id3Xl2bT48fKhG9JIoWoZUBASRz9SyLLR4VqLIo07upj7
+         +CeQdNz1Idp74ds0QGxqAjmCnS5bu+pXCmDrb+02URXDpWob/J1ZSVqcxGt4wBGRTL8u
+         W4a+cZhl8K16U1mG0lXmCNJQ3XPHh8d+KvdqgCx2plJUHjWRjZ93PUwWDzn/tgvSS2k1
+         /pOND1mIww5eQW9gT57FmaFjLMylAuC5PqBifME9Nj2D3TyPLHek1D75FTZmC+reBC3n
+         gwB8rryT2Pv4EfnawFTWvzO1hzuPHQTavp0CmmV7EJJx6miUWsSY1S6sJTRC9pEdiOms
+         hfaw==
+X-Gm-Message-State: AOJu0YxyqA3CEwvT5blLirOTKASIyoUw1Z/FC+tjwIKslYCbxvW2FZYB
+	xS8CL8N5fUj+ciIErgDOPAh/5HonwiXVAKJIzelxb7ypJFIaPjBGOMj5tJ888drpTwhov9kLVoo
+	MouEXzVwfiEM4Vx27gCZwR8/pQqH1DOoFysA=
+X-Gm-Gg: ASbGnctFh55w9iDbQkyV+wwkvWHVb2Uyx69tl9qQg8kOsgNuWjx2OkKVVxPCcBjxZf1
+	HGXgmYWCykYRyYiPXEgMj6PoWzNEZJKMlmvw8MQjHfrqxhD0Gbw9KQn4wv0tl+0qJN+PwYhfoiQ
+	S6d8GV3LcK3DFB4hOVL+LLtYxQYFhlQKHGFO3X
+X-Google-Smtp-Source: AGHT+IHsHRh+kfMiHcjEYfo3FDjRdhnKQLWA6P0CHu4sUj/V+qedNHDkl2evPesYurQ6nSL27XTBLkFT6pbateRD/K4=
+X-Received: by 2002:a17:906:6a0d:b0:ac2:811a:665a with SMTP id
+ a640c23a62f3a-ac3f2804f8amr936353466b.57.1742706290912; Sat, 22 Mar 2025
+ 22:04:50 -0700 (PDT)
+References: <PR3SPRMB000280476EEC32836900298E8EDC2@PR3SPRMB0002.eurprd01.prod.exchangelabs.com>
+In-Reply-To: <PR3SPRMB000280476EEC32836900298E8EDC2@PR3SPRMB0002.eurprd01.prod.exchangelabs.com>
+From: HARI <haricottv@gmail.com>
+Date: Sun, 23 Mar 2025 14:05:08 +0900
+X-Gm-Features: AQ5f1Jr63shK-hKznVPSIeq211I99MAcTZonnhGyazO_2PcsEnXXuotXpnsBs8U
+Message-ID: <CABdmRiipiUuFEuHWaMv-F7VSe6--TcbXi9r7ORyuZi-ykTO=zA@mail.gmail.com>
+Subject: =?UTF-8?Q?Re=3A_Avis_expert_=3A_Mod=C3=A9ration_des_r=C3=A9seaux_sociaux?=
+To: Medhi Vanderberken <Medhi.Vanderberken@student.umons.ac.be>
+Content-Type: multipart/alternative; boundary="0000000000006af52c0630fb6d05"
+Return-Path: haricottv@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 23 Mar 2025 05:04:52.7611
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 75389c71-8750-4781-d6de-08dd69c83efc
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 488bed9d-d6a7-48d5-ba1f-ebec3823b357:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM3PEPF0000A794:EE_|AS8PR01MB7302:EE_|DU2PR01MB8431:EE_
+X-MS-Exchange-Organization-AuthSource: AM3PEPF0000A794.eurprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 75389c71-8750-4781-d6de-08dd69c83efc
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7093399012|8096899003;
+X-Forefront-Antispam-Report: CIP:2a00:1450:4864:20::62c;CTRY:;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail-ej1-x62c.google.com;PTR:mail-ej1-x62c.google.com;CAT:NONE;SFS:(13230040)(7093399012)(8096899003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2025 05:04:52.2767
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75389c71-8750-4781-d6de-08dd69c83efc
+X-MS-Exchange-CrossTenant-Id: 488bed9d-d6a7-48d5-ba1f-ebec3823b357
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A794.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR01MB7302
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.6591515
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8534.033
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?SmFweGpNTW9MSStiajJSazkyUkVPa09aLzU4Mnk0dU5ZM085R0o5M0w5aEpl?=
+ =?utf-8?B?OUlGakR2MTNRSmRFMnF6WkdSa3ZLcldsMHJRbnlFS2sweElJQ1BUOUVwVW9Z?=
+ =?utf-8?B?S3FmdEJVNlY2aDJlbkpmeEYrTEs1eGg4dHRDSW04UkV3RVdQdkxvWEVTVDlD?=
+ =?utf-8?B?akkvZVRhbDVLVWd4L3ZNUm1xVWoyVW1zS0x4bzdDbEN0a1dScE5FWm1Xa2kw?=
+ =?utf-8?B?MXh3RExMbTFxN2Y2dVhWeDlZZmd2OVloU2JwdTloMTRDdEp2RzcxaG15WWlL?=
+ =?utf-8?B?SmIyMFdVMDBTZW8wd0RaVGxrR09yYVl3YVNQY2sySlVBdHNTYnh5VkpTL0NM?=
+ =?utf-8?B?Z25vdFNuWHRpdlM4RWVoYkl6YmRkM28vTloxRHo0VlkzM0RCbmhwdmp2QjBB?=
+ =?utf-8?B?d1dEamJydnNGMTRCZ3YzeFFCMlEvSm1NbElodVBaMyt1MDQrRnZMS2xjaGpW?=
+ =?utf-8?B?M3JZVUVMc1hwTUtyUVhEMGtUTkVWZW91Nk9jcWR6SWpJVEFoR1F5aDNpZjh5?=
+ =?utf-8?B?Z2FFcjcvUThudGllcTVNTlpBLy9ESDRjaUE2MWFmV28zbXZENFFoL21PMnVu?=
+ =?utf-8?B?L3IzQUZaRG0zcGhLbi9lL2t2V3Qvc0lzN0I5YzgzMGFsV21TZWxPTGIzaTRJ?=
+ =?utf-8?B?L2FzYXpyWUlrd2J4OXByZ3dTRDR4WVVUOGI2MXpzL0lzL2xTTzJKZXZlL3VY?=
+ =?utf-8?B?L0R5K2NJbWxXR1NRY1RZQSttWlpOWUdyOEMyY3VhK3c1L0NJekhHbzNyZTFo?=
+ =?utf-8?B?T1pmUHFRUWdLTTN0VE9Qb3pVWGpWVFcyOWZOQXNuTmR1SFNCRlZyM2w1OC9h?=
+ =?utf-8?B?aGJ4akVsODk5WGl1NU1SUXZiYmhtUFVSWllPeWphSFhLWXRoNWFwU3NUYlNk?=
+ =?utf-8?B?b2F5NjVyY0g5NjJ0Q2RMaW1nVkFKK3k3SFMyUWhSYmMyRnR4N0c1Q0xUOEI3?=
+ =?utf-8?B?YVlCRlF6dHBhWXFiNVNQOENhWis5SDNLNEdjcm5XdDNiN3RtYmJHaGRnR25i?=
+ =?utf-8?B?d2NzKzk4aERnVzBKVklMQmdlMEJPZU1JdFIvY1dnRktKalVWQXZrMm5MWG5s?=
+ =?utf-8?B?ZWZRUDFnUE9xRHB6M1JaS1lKVGhTS1hMQ2t6ZURKM1NFZWNkSVIrUllvMXlk?=
+ =?utf-8?B?Z1lkM3luQnYwZG9obWswbkcvVnkveEpnUWhYdmd4c25ESTZ3RHoray9WYktz?=
+ =?utf-8?B?Z2QvblhGY2Y5YnhhVXpmSGhMWXNZSDdOU1liN3BDWWxqbXA3cGhPNUFDQ3A5?=
+ =?utf-8?B?NzVJc0tqVGYzT0tEOUltZDRCV0pVcGJGUExrVFZOdXUwV0w2NnpBSSsyampT?=
+ =?utf-8?B?WDlvckttNC9JTW5MTmovWWtFSzQvYlJpOGRuQzBpb1hSS0tlVGVrOTl5QXRw?=
+ =?utf-8?B?aTdXTjQ5SDRSOGRKZUkrZWlMa3VidUNjT2VZT1M1ZWRxcUVOZmNWVGlXVG54?=
+ =?utf-8?B?N3Yzb052Q0c0VnUrQUFsSXFpWnVuY2llcXRrc2Q1WXd6SkxZRE5Vckwxdkgr?=
+ =?utf-8?B?aEdqd0Z1TXQ0VTBFNHRNUnVBTzFtbW5XenpkRnhpSHlrdUVyZXZQZFlBbXRK?=
+ =?utf-8?B?aWRMVG9VSWVtY1lwbDJzRnlrSXpwOE5jN3cwN1RRdG9XNTlTODQwd3ZnL0FN?=
+ =?utf-8?B?TnFXcEdMV2tqS1E0RTdKSXhldVA2QnZXSjVRdFluSGwyODRtMW92L0Z2NzhN?=
+ =?utf-8?B?dkVpbGlRdGtVVFJNYmdpZTJHajdjQVZ5Qm9aMlk4Q2ZRNmhjREkwTEppM25O?=
+ =?utf-8?B?ZEwyalpIQ0tlNzkyVVE3SzRuYTVUYUZVdFdkd3RvK3lydUp3eFhnNzE1aXZ1?=
+ =?utf-8?B?K1Ezcy9IOFZjZ1YrSGd6L1VkVUpDZ3RHN1JWMVlwRlpmNUh6NVNvWkRIRjlp?=
+ =?utf-8?B?aFRXRjdudzJPaTNOSmZSTEtzQUZQZnlNUVNBb3FhblRyRmxONmU0dm5ic0p3?=
+ =?utf-8?B?ajNLWndKZzFqVCtyYmxEcHdhNUR6bFJyajUrMEE4ekx3QWwzUTl2eWRTekpi?=
+ =?utf-8?B?N2MrU2pjMlhsSUdvakljdktwb0JBUlBvUFVLeWVvOG9qcWlIWkp4a0sxTzR5?=
+ =?utf-8?B?ZEZDR0xub2Q2aWgxejFlT1hoa1BuVzJyM2dIaXduWFZnaXFYUmxlTGJqNWQ3?=
+ =?utf-8?B?ajl0U1VURTkxeWswYVk3YUdCZnd0M1E1cW9XWkVVR29ob2JpdnZZeDFvT1E4?=
+ =?utf-8?B?VmsybXJMUCs1dVpTUmJxNVdsR2ZBQytEZkxWTmxJWC8ycGREaTFtWXYyYWVP?=
+ =?utf-8?B?NUZnMFRFUmkvNzlRYkNlbnYxQ3pGVEIwTzB2dmU3d1hxaWZDTFl2Y2tQM3dz?=
+ =?utf-8?B?d0xUaUF5VmlHMjREQnQ5RTZlNUtGYVNOMDRHNFNybDVLUlg0QmxPdW9ibGNL?=
+ =?utf-8?B?Mi9WZ2VFNU9XYUp6RTEvUndqMXFXSDVxeExkTldwTWYrMnpXN3owWHhXcVFD?=
+ =?utf-8?B?V1pJVGxpQmRLWTljVjNLVzl3ZWNjSXhEdnNRUGI1MjhDb0VHMlBDM3lZSE41?=
+ =?utf-8?B?akdOcURCNFI5cnJFZTI3bXRuckswUExmWWdXTTFVSkRGcklKT0tSZzhpdTZj?=
+ =?utf-8?B?NmRlKzRUMkRzR1ZmM01SZHBVeGVEVDcwd1o4Y1hpWHRXQVF2ZGpBUTdqb1h3?=
+ =?utf-8?B?eXlOVEl1Mm5nck12YW9kVFBXSkFsZE5ZZ2xPc21pelYraURBL3Z5ZXZkZWFO?=
+ =?utf-8?B?Rld2bDc1enJQcEo1RVJlUkFmVVRjVkRNNFptd3oyUnFadFpDNmxGRkZWYjMw?=
+ =?utf-8?B?VnUxN0V6QjYxSk4vSmU3d3d5azlwZmZmaVI0R3hKdG1yRjdrZkExVDRHYS9K?=
+ =?utf-8?B?UTc0VUUyRlJnYmplaEdEZEFtbGhhRWd4SWF2ZG9wUzVuenFVWWRBclVlWTdo?=
+ =?utf-8?B?RGU4L2lycjNaczVHMUVTcWJXRTdhTXlnU1NCUi82c0M2bWhaTWxxa2Y5a2d3?=
+ =?utf-8?B?SG9FTjNQVWdnOUJxUGF6V3gycXhOeXBYMEtHNGtqaVNzeWpwSUE9PQ==?=
+MIME-Version: 1.0
+
+--0000000000006af52c0630fb6d05
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+Je vais r=C3=A9pondre rapidement =C3=A0 chaque question:
+
+- Je pense que le travail de mod=C3=A9ration est trop difficile, certaines
+plate-formes essaient de d=C3=A9tecter mais c'est parfois compliqu=C3=A9 de
+diff=C3=A9rencier un humour innocent et des propos offensants. Mais m=C3=AA=
+me sans =C3=A7a
+on voit souvent deux poids deux mesures dans les d=C3=A9cisions par exemple=
+ sur
+Twitch, o=C3=B9 la sexualisation va souvent =C3=AAtre ignor=C3=A9e par le s=
+taff mais un
+mot pr=C3=A9cis, m=C3=AAme sans aucune malintention, peut valoir une sancti=
+on.
+
+- Bons =C3=A9l=C3=A8ves et mauvais =C3=A9l=C3=A8ves je dirais que je ne sai=
+s pas car je ne suis
+pas s=C3=BBr de pouvoir identifier un seul bon =C3=A9l=C3=A8ve. M=C3=AAme c=
+eux qui veulent
+montrer des bonnes intentions prennent dans le m=C3=AAme temps des d=C3=A9c=
+isions
+absurdes.
+
+- Je vois pas de probl=C3=A8me =C3=A0 la pr=C3=A9sence de la politique sur =
+les r=C3=A9seaux
+sociaux, tous les bords politiques peuvent s'en servir je vois pas en quoi
+=C3=A7a pose plus de probl=C3=A8me que dans les autres m=C3=A9dias, les gen=
+s d=C3=A9j=C3=A0 =C3=A0 se
+rassurer par rapport =C3=A0 leurs convictions qu'importe la valeur de ces
+derni=C3=A8res. Du coup le souci se trouve dans la bulle d'auto-validation =
+que
+les algos de certaines plateformes peuvent engendrer, ou alors tout le
+contraire pour augmenter le trafic et l'interaction.
+
+- Culturellement les japonais sont moins conflictuels donc =C3=A7a joue
+beaucoup. Aussi, tu verras jamais des gens d=C3=A9fendre des hommes de 30 a=
+ns
+qui sortent avec des filles de 16 ans, la majorit=C3=A9 sexuelle est plus b=
+asse
+ici et pourtant il y a pas de gros lourds pour nous expliquer que la fille
+de 16 ans a "fait un choix" ou ce genre d'horreur. C'est un exemple mais
+pour voir comment =C3=A7a se passe dans d'autres sph=C3=A8res, c'est typiqu=
+ement le
+genre de choses qui est particuli=C3=A8rement toxique chez les francophones=
+ sur
+les r=C3=A9seaux.
+
+- L'IA est le seul moyen de "scanner" tout ce qui est publi=C3=A9 car
+humainement c'est impossible. Mais encore une fois, c'est difficile pour
+l'IA de faire la part des choses, une premi=C3=A8re d=C3=A9tection par IA p=
+uis une
+v=C3=A9rification humaine peut =C3=AAtre un compromis. Apr=C3=A8s =C3=A7a r=
+este un probl=C3=A8me de
+soci=C3=A9t=C3=A9 autant qu'un probl=C3=A8me des r=C3=A9seaux. Dans un cerc=
+le priv=C3=A9 on
+s'autorise =C3=A0 dire certaines choses entre personnes qui ne sont pas ble=
+ss=C3=A9es
+par certains propos quand bien m=C3=AAme on est concern=C3=A9 par les propo=
+s. Qu'on
+soit sur internet ou dans un lieu public c'est pareil, par contre il n'y a
+aucune/presque aucune cons=C3=A9quence sur internet. Faut-il supprimer
+l'anonymat sur internet pour pr=C3=A9venir ces probl=C3=A8mes ? D=C3=A9bat =
+politique &
+philosophique.
+
+- =C3=87a arrive encore, j'ai =C3=A9t=C3=A9 pris pour cible par une certain=
+e communaut=C3=A9
+d=C3=A8s que j'ai commenc=C3=A9 =C3=A0 publier du contenu sur internet et i=
+l y a eu
+diff=C3=A9rentes vagues. =C3=87a correspond souvent aux p=C3=A9riodes o=C3=
+=B9 le trafic est le
+plus important. Ayant perdu beaucoup d'audience depuis 2 ans, j'ai =C3=A9t=
+=C3=A9
+plut=C3=B4t =C3=A9pargn=C3=A9 pendant ce temps. Et comme par hasard, depuis=
+ le regain
+d'int=C3=A9r=C3=AAt pour mon domaine d'expertise, je re=C3=A7ois =C3=A0 nou=
+veau du harc=C3=A8lement
+organis=C3=A9 et =C3=A7a reviendra probablement dans une plus grande enverg=
+ure et
+fr=C3=A9quence aux prochaines =C3=A9ch=C3=A9ances. Il suffit de quelques pe=
+rsonnes
+motiv=C3=A9es dans l'oc=C3=A9an de personnes qui interagissent sur internet=
+ pour que
+ce soit impossible de passer =C3=A0 c=C3=B4t=C3=A9/ignorer. J'ai une person=
+nalit=C3=A9 qui
+tranche donc certains en jouent pour attirer mon attention. Il n'y a pas de
+mode d'emploi pour =C3=A9viter =C3=A7a ou pour ignorer quand =C3=A7a arrive=
+, on apprend =C3=A0
+vivre avec.
+
+- Je pense que les r=C3=A9seaux ont confort=C3=A9 sans le vouloir les gens =
+dans leurs
+bulles d'auto-validation, et ils n'ont pas le pouvoir d'endiguer le
+probl=C3=A8me et de toute fa=C3=A7on ils n'ont rien =C3=A0 y gagner. Les in=
+fluenceurs,
+eux, partagent ou pas leurs opinions, parfois parce que c'est bon pour leur
+business ou par pur agenda politique. Je pense qu'on ne peut rien faire
+contre =C3=A7a sans rentrer dans la censure, et on retrouve un d=C3=A9bat p=
+olitique &
+philosophique: faut-il tol=C3=A9rer l'intol=C3=A9rance ? J'ai encore mon av=
+is sur la
+question mais ce n'est pas le sujet je crois.
+
+J'esp=C3=A8re que mes r=C3=A9ponses te seront utiles.
+
+Cordialement,
+Thomas Gravouille
+
+Le dim. 16 mars 2025 =C3=A0 18:59, Medhi Vanderberken <
+Medhi.Vanderberken@student.umons.ac.be> a =C3=A9crit :
+
+> Bonjour Hari,
+>
+> Ce mail suit mon message sur Instagram avec mes questions pour mon travai=
+l
+> d=E2=80=99=C3=A9thique de l=E2=80=99ing=C3=A9nieur portant sur les r=C3=
+=A9seaux social, ca m=E2=80=99aide
+> =C3=A9norm=C3=A9ment moi-m=C3=AAme et mon =C3=A9quipe pour notre travail =
+d=E2=80=99avoir des avis
+> d=E2=80=99expert (au sens large) des r=C3=A9seaux sociaux. Voici donc mes=
+ questions ; si
+> tu pr=C3=A9f=C3=A8res en passer ou mettre un avis plus global n=E2=80=99h=
+=C3=A9site surtout pas.
+> Je pr=C3=A9cise =C3=A0 nouveau que tout ce qui est dit ici ne passera la =
+fronti=C3=A8re de
+> l=E2=80=99universit=C3=A9.
+>
+>    - En tant qu=E2=80=99influenceur (je n=E2=80=99aime pas trop ce mot ma=
+is bon), estime
+>    tu que le travail de mod=C3=A9ration des r=C3=A9seaux sociaux : haine,=
+ racisme,
+>    sexualisation,=E2=80=A6 est fait correctement ? (r=C3=A9seaux sociaux =
+au sens tr=C3=A8s
+>    large : Facebook, X, Instagram, TikTok, Discord, Twitch,=E2=80=A6 des =
+plateformes
+>    ou les personnes peuvent communiquer ou poster des choses au sens larg=
+e )
+>    - Quels sont les =C2=AB bons =C3=A9l=C3=A8ves =C2=BB en la mati=C3=A8r=
+e et les moins =C2=AB bons =C2=BB
+>    et pourquoi ?
+>    - Selon toi est ce que la politique =C3=A0 sa place sur les r=C3=A9sea=
+ux
+>    sociaux ?
+>    - =C3=89tant donn=C3=A9 que tu es en visa pour Japon, actuellement j=
+=E2=80=99en profite,
+>    vois-tu une diff=C3=A9rence sur les r=C3=A9seaux en g=C3=A9n=C3=A9ral =
+par rapport =C3=A0 l=E2=80=99Europe
+>    (respect, haine,=E2=80=A6)
+>    - Si tu estimes que la mod=C3=A9ration pourrait =C3=AAtre meilleure, q=
+uels
+>    m=C3=A9canisme pourrait =C3=AAtre mis en place (humains, filtres, IA,=
+=E2=80=A6) pour
+>    am=C3=A9liorer cela ?
+>    - Re=C3=A7ois tu parfois dans tes DM, dans les commentaires de vid=C3=
+=A9os comme
+>    celle de d=C3=A9but janvier ou sur twitch des attaques personnelles en=
+vers ta
+>    personnes et si oui =C3=A0 quelles fr=C3=A9quences ?
+>    - Estimes tu que d=E2=80=99autres influenceurs d=C3=A9sinforment sur l=
+=E2=80=99actualit=C3=A9 en
+>    g=C3=A9n=C3=A9ral ou provoque de la haine ou du racisme et que cela de=
+vrait
+>    disparaitre des r=C3=A9seaux ?
+>
+> Encore un grand merci pour le temps que tu m=E2=80=99a accord=C3=A9
+>
+> Bien =C3=A0 toi
+>
+>
+>
+> Medhi Vanderberken
+>
+>
+>
+
+--0000000000006af52c0630fb6d05
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Hello,<div>Je vais r=C3=A9pondre rapidement =C3=A0 chaque qu=
+estion:</div><div><br></div><div>- Je pense que le travail de mod=C3=A9rati=
+on est trop difficile, certaines plate-formes essaient de d=C3=A9tecter mai=
+s c'est parfois compliqu=C3=A9 de diff=C3=A9rencier un humour innocent et d=
+es propos offensants. Mais m=C3=AAme sans =C3=A7a on voit souvent deux poid=
+s deux mesures dans les d=C3=A9cisions par exemple sur Twitch, o=C3=B9 la s=
+exualisation va souvent =C3=AAtre ignor=C3=A9e par le staff mais un mot pr=
+=C3=A9cis, m=C3=AAme sans aucune malintention, peut valoir une sanction.</d=
+iv><div><br>- Bons =C3=A9l=C3=A8ves et mauvais =C3=A9l=C3=A8ves je dirais q=
+ue je ne sais pas car je ne suis pas s=C3=BBr de pouvoir identifier un seul=
+ bon =C3=A9l=C3=A8ve. M=C3=AAme ceux qui veulent montrer des bonnes intenti=
+ons prennent dans le m=C3=AAme temps des d=C3=A9cisions absurdes.</div><div=
+><br></div><div>- Je vois pas de probl=C3=A8me =C3=A0 la pr=C3=A9sence de l=
+a politique sur les r=C3=A9seaux sociaux, tous les bords politiques peuvent=
+ s'en servir je vois pas en quoi =C3=A7a pose plus de probl=C3=A8me que dan=
+s les autres m=C3=A9dias, les gens d=C3=A9j=C3=A0 =C3=A0 se rassurer par ra=
+pport =C3=A0 leurs convictions qu'importe la valeur de ces derni=C3=A8res. =
+Du coup le souci se trouve dans la bulle d'auto-validation que les algos de=
+ certaines plateformes peuvent engendrer, ou alors tout le contraire pour a=
+ugmenter le trafic et l'interaction.</div><div><br></div><div>- Culturellem=
+ent les japonais sont moins conflictuels donc =C3=A7a joue beaucoup. Aussi,=
+ tu verras jamais des gens d=C3=A9fendre des hommes de 30 ans qui sortent a=
+vec des filles de 16 ans, la majorit=C3=A9 sexuelle est plus basse ici et p=
+ourtant il y a pas de gros lourds pour nous expliquer que la fille de 16 an=
+s a &quot;fait un choix&quot; ou ce genre d'horreur. C'est un exemple mais =
+pour voir comment =C3=A7a se passe dans d'autres sph=C3=A8res, c'est typiqu=
+ement le genre de choses qui est particuli=C3=A8rement&nbsp;toxique chez le=
+s francophones sur les r=C3=A9seaux.</div><div><br></div><div>- L'IA est le=
+ seul moyen de &quot;scanner&quot; tout ce qui est publi=C3=A9 car humainem=
+ent c'est impossible. Mais encore une fois, c'est difficile pour l'IA de fa=
+ire la part des choses, une premi=C3=A8re d=C3=A9tection par IA puis une v=
+=C3=A9rification humaine peut =C3=AAtre un compromis. Apr=C3=A8s =C3=A7a re=
+ste un probl=C3=A8me de soci=C3=A9t=C3=A9 autant qu'un probl=C3=A8me des r=
+=C3=A9seaux. Dans un cercle priv=C3=A9 on s'autorise =C3=A0 dire certaines =
+choses entre personnes qui ne sont pas bless=C3=A9es par certains propos qu=
+and bien m=C3=AAme on est concern=C3=A9 par les propos. Qu'on soit sur inte=
+rnet ou dans un lieu public c'est pareil, par contre il n'y a aucune/presqu=
+e aucune cons=C3=A9quence sur internet. Faut-il supprimer l'anonymat sur in=
+ternet pour pr=C3=A9venir ces probl=C3=A8mes ? D=C3=A9bat politique &amp; p=
+hilosophique.</div><div><br></div><div>- =C3=87a arrive encore, j'ai =C3=A9=
+t=C3=A9 pris pour cible par une certaine communaut=C3=A9 d=C3=A8s que j'ai =
+commenc=C3=A9 =C3=A0 publier du contenu sur internet et il y a eu diff=C3=
+=A9rentes vagues. =C3=87a correspond souvent aux p=C3=A9riodes o=C3=B9 le t=
+rafic&nbsp;est le plus important. Ayant perdu beaucoup d'audience depuis 2 =
+ans, j'ai =C3=A9t=C3=A9 plut=C3=B4t =C3=A9pargn=C3=A9 pendant ce temps. Et =
+comme par hasard, depuis le regain d'int=C3=A9r=C3=AAt pour mon domaine d'e=
+xpertise, je re=C3=A7ois =C3=A0 nouveau du harc=C3=A8lement organis=C3=A9 e=
+t =C3=A7a reviendra probablement dans une plus grande envergure et fr=C3=A9=
+quence aux prochaines =C3=A9ch=C3=A9ances. Il suffit de quelques personnes =
+motiv=C3=A9es dans l'oc=C3=A9an de personnes qui interagissent&nbsp;sur int=
+ernet pour que ce soit impossible de passer =C3=A0 c=C3=B4t=C3=A9/ignorer. =
+J'ai une personnalit=C3=A9 qui tranche donc certains en jouent pour attirer=
+ mon attention. Il n'y a pas de mode d'emploi pour =C3=A9viter =C3=A7a ou p=
+our ignorer quand =C3=A7a arrive, on apprend =C3=A0 vivre avec.</div><div><=
+br></div><div>- Je pense que les r=C3=A9seaux ont confort=C3=A9 sans le vou=
+loir les gens dans leurs bulles d'auto-validation, et ils n'ont pas le pouv=
+oir d'endiguer le probl=C3=A8me et de toute fa=C3=A7on ils n'ont rien =C3=
+=A0 y gagner. Les influenceurs, eux,&nbsp;partagent ou pas leurs opinions, =
+parfois parce que c'est bon pour leur business ou par pur&nbsp;agenda polit=
+ique. Je pense qu'on ne peut rien faire contre =C3=A7a sans rentrer dans la=
+ censure, et on retrouve un d=C3=A9bat politique &amp; philosophique: faut-=
+il tol=C3=A9rer l'intol=C3=A9rance ? J'ai encore mon avis sur la question m=
+ais ce n'est pas le sujet je crois.<br><br>J'esp=C3=A8re que mes r=C3=A9pon=
+ses te seront utiles.<br><br>Cordialement,</div><div>Thomas Gravouille</div=
+></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr"=
+>Le&nbsp;dim. 16 mars 2025 =C3=A0&nbsp;18:59, Medhi Vanderberken &lt;<a hre=
+f=3D"mailto:Medhi.Vanderberken@student.umons.ac.be" target=3D"_blank">Medhi=
+.Vanderberken@student.umons.ac.be</a>&gt; a =C3=A9crit&nbsp;:<br></div><blo=
+ckquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left=
+:1px solid rgb(204,204,204);padding-left:1ex"><div>
+
+
+
+
+
+<div lang=3D"FR-BE">
+<div>
+<p class=3D"MsoNormal"><span lang=3D"NL">Bonjour Hari, <u></u><u></u></span=
+></p>
+<p class=3D"MsoNormal">Ce mail suit mon message sur Instagram avec mes ques=
+tions pour mon travail d=E2=80=99=C3=A9thique de l=E2=80=99ing=C3=A9nieur p=
+ortant sur les r=C3=A9seaux social, ca m=E2=80=99aide =C3=A9norm=C3=A9ment =
+moi-m=C3=AAme et mon =C3=A9quipe pour notre travail d=E2=80=99avoir des avi=
+s d=E2=80=99expert (au sens large)
+ des r=C3=A9seaux sociaux. Voici donc mes questions&nbsp;; si tu pr=C3=A9f=
+=C3=A8res en passer ou mettre un avis plus global n=E2=80=99h=C3=A9site sur=
+tout pas. Je pr=C3=A9cise =C3=A0 nouveau que tout ce qui est dit ici ne pas=
+sera la fronti=C3=A8re de l=E2=80=99universit=C3=A9.<u></u><u></u></p>
+<ul style=3D"margin-top:0cm" type=3D"disc">
+<li style=3D"margin-left:0cm">En tant qu=E2=80=99influenceur (je n=E2=80=99=
+aime pas trop ce mot mais bon), estime tu que le travail de mod=C3=A9ration=
+ des r=C3=A9seaux sociaux&nbsp;: haine, racisme, sexualisation,=E2=80=A6 es=
+t fait correctement&nbsp;? (r=C3=A9seaux
+ sociaux au sens tr=C3=A8s large&nbsp;: Facebook, X, Instagram, TikTok, Dis=
+cord, Twitch,=E2=80=A6 des plateformes ou les personnes peuvent communiquer=
+ ou poster des choses au sens large )<u></u><u></u></li><li style=3D"margin=
+-left:0cm">Quels sont les =C2=AB&nbsp;bons =C3=A9l=C3=A8ves&nbsp;=C2=BB en =
+la mati=C3=A8re et les moins =C2=AB&nbsp;bons&nbsp;=C2=BB et pourquoi&nbsp;=
+?<u></u><u></u></li><li style=3D"margin-left:0cm">Selon toi est ce que la p=
+olitique =C3=A0 sa place sur les r=C3=A9seaux sociaux&nbsp;?<u></u><u></u><=
+/li><li style=3D"margin-left:0cm">=C3=89tant donn=C3=A9 que tu es en visa p=
+our Japon, actuellement j=E2=80=99en profite, vois-tu une diff=C3=A9rence s=
+ur les r=C3=A9seaux en g=C3=A9n=C3=A9ral par rapport =C3=A0 l=E2=80=99Europ=
+e (respect, haine,=E2=80=A6)<u></u><u></u></li><li style=3D"margin-left:0cm=
+">Si tu estimes que la mod=C3=A9ration pourrait =C3=AAtre meilleure, quels =
+m=C3=A9canisme pourrait =C3=AAtre mis en place (humains, filtres, IA,=E2=80=
+=A6) pour am=C3=A9liorer cela&nbsp;?<u></u><u></u></li><li style=3D"margin-=
+left:0cm">Re=C3=A7ois tu parfois dans tes DM, dans les commentaires de vid=
+=C3=A9os comme celle de d=C3=A9but janvier ou sur twitch des attaques perso=
+nnelles envers ta personnes et si oui =C3=A0 quelles fr=C3=A9quences&nbsp;?=
+<u></u><u></u></li><li style=3D"margin-left:0cm">Estimes tu que d=E2=80=99a=
+utres influenceurs d=C3=A9sinforment sur l=E2=80=99actualit=C3=A9 en g=C3=
+=A9n=C3=A9ral ou provoque de la haine ou du racisme et que cela devrait dis=
+paraitre des r=C3=A9seaux&nbsp;?<u></u><u></u></li></ul>
+<p class=3D"MsoNormal">Encore un grand merci pour le temps que tu m=E2=80=
+=99a accord=C3=A9<u></u><u></u></p>
+<p class=3D"MsoNormal">Bien =C3=A0 toi<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>&nbsp;<u></u></p>
+<p class=3D"MsoNormal">Medhi Vanderberken<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>&nbsp;<u></u></p>
+</div>
+</div>
+
+</div></blockquote></div>
+
+--0000000000006af52c0630fb6d05--
