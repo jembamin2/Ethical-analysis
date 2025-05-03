@@ -125,6 +125,9 @@ document.addEventListener("DOMContentLoaded", function() {
                         </ul>
                     </li>
                     <li class="nav-item">
+                      <a class="nav-link active" href="NotreAvis.html">Notre avis</a>
+                    </li>
+                    <li class="nav-item">
                       <a class="nav-link active" href="sources.html">Sources & références</a>
                     </li>
                     <li class="nav-item">
@@ -147,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // <p>Faut-il censurer les réseaux sociaux ? </p>`;
 
     footer.innerHTML = `
+    <hr class="featurette-divider"></hr>
     <div class="row container align-items-center">
       <div class="col-md-3 col-12 mx-auto text-center"><img src="../Images/umons-log.webp" class="img-fluid w-65" alt="Umons"></div>
       <div class="col-md-6 col-12 order-first order-md-2 mx-auto text-center">
