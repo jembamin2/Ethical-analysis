@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
 
     //import style sheet
@@ -28,8 +29,6 @@ document.addEventListener("DOMContentLoaded", function() {
     boostrapJS.integrity = "sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz";
     document.head.appendChild(boostrapJS);
 
-
-    
 
     let navbar = document.createElement("navbar");
     // navbar.classList.add("p-1") //jsp pourquoi maintenant plus besoin
@@ -132,6 +131,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" href="Equipe.html">Notre équipe</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="../../">Retour</a>
+                    </li>
                     </ul>
                 </div>
                 </div>
