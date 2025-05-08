@@ -132,8 +132,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     <li class="nav-item">
                       <a class="nav-link active" href="Equipe.html">Notre équipe</a>
                     </li>
+                    </ul>
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                      <a class="nav-link active" href="../../">Retour</a>
+                        <a class="nav-link active" href="../../">Retour</a>
                     </li>
                     </ul>
                 </div>
